@@ -3,6 +3,7 @@ package hydro.auto.ops.controller;
 import hydro.auto.ops.repository.EmployeeRepository_v2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +20,12 @@ public class TestController {
 
     @Autowired
     private Environment env;
-
     @Autowired
     private db_schema db_schema_test;
     @GetMapping("/demo")
     public String add(){
         System.out.println(db_schema_test.getString_test());
+        System.out.println(env.getProperty("server.database.password"));
         return "test";
     }
 }
