@@ -18,6 +18,9 @@ public class TestController {
 //    private String string_test;
 
     @Autowired
+    private Environment env;
+
+    @Autowired
     private db_schema db_schema_test;
     @GetMapping("/demo")
     public String add(){
