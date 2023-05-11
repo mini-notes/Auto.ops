@@ -1,8 +1,8 @@
 package hydro.auto.ops.controller;
 
-import hydro.auto.ops.model.Employee;
-import hydro.auto.ops.repository.EmployeeRepository;
-import hydro.auto.ops.repository.EmployeeRepository_v2;
+import hydro.auto.ops.model.db1.Employee;
+import hydro.auto.ops.repository.db1.EmployeeRepository;
+import hydro.auto.ops.repository.db1.EmployeeRepository_v2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,14 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Autowired
+//    @Autowired
     private EmployeeRepository_v2 employeeRepository_v2;
 
     @GetMapping("/employees")
     public ResponseEntity<List<Employee>> getAllEmployees() {
         try {
             return new ResponseEntity<>(employeeRepository.findAll(), HttpStatus.OK);
+//            return new ResponseEntity<>(employeeRepository_v2.getAllEmployees(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

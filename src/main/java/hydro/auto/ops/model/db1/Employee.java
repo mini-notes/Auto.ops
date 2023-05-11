@@ -1,4 +1,4 @@
-package hydro.auto.ops.model;
+package hydro.auto.ops.model.db1;
 
 import javax.persistence.*;
 
